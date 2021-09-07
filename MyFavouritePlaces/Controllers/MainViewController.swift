@@ -13,7 +13,7 @@ class MainViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        title = "My Favourite places"
         tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "cell")
         
         let addPlaceButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewPlace))
@@ -40,7 +40,7 @@ class MainViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomTableViewCell
-        cell.cellImageView.image = UIImage(named: places[indexPath.row].image)
+        cell.cellImageView.image = UIImage(named: places[indexPath.row].restaurantImage!)
         cell.nameLabel.text = places[indexPath.row].name
         cell.typeLabel.text = places[indexPath.row].type
         cell.locationLabel.text = places[indexPath.row].location
@@ -53,15 +53,5 @@ class MainViewController: UITableViewController {
         return 100
     }
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
